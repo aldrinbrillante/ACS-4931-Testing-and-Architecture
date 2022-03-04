@@ -10,3 +10,12 @@ from ..carbon_dating import get_age_carbon_14_dating
 # Add the necessary logic to make sure the function handle
 # every possible input properly. Then write a unit test againt
 # this special case.
+
+
+def test_carbon_dating():
+    carbon_14_ratio = 0.35
+    if carbon_14_ratio <= 0:
+        assert math.isnan(get_age_carbon_14_dating(carbon_14_ratio))
+    else:
+        assert math.isclose(get_age_carbon_14_dating(
+            carbon_14_ratio), 8680.34, abs_tol=0.05)
